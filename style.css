@@ -29,6 +29,10 @@ body {
 	background-color: #202020;
 }
 
+.calculator button:active {
+	transform: scale(1.2);
+}
+
 .double-size {
 	grid-column: span 2;
 }
@@ -53,7 +57,7 @@ body {
 	font-size: 1rem;
 }
 
-.bigBottomText {
+.bigTopText {
 	color: white;
 	font-size: 1.5rem;
 }
