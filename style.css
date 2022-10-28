@@ -8,6 +8,7 @@ body {
 	display: grid;
 	justify-content: center;
 	align-content: center;
+	border: 1px solid black;
 	min-height: 100vh;
 	grid-template-columns: repeat(4, 4rem);
 	grid-template-rows: minmax(5rem, auto) repeat(5, 4rem);
@@ -15,15 +16,17 @@ body {
 
 .calculator-body button {
 	cursor: pointer;
-	border: 1px solid white;
-	background-color: #202020;
+	border: 0.1rem solid black;
+	background-color: #3a3a3a;
 	color: white;
 	outline: none;
+	font-size: 1rem;
 	font-weight: bold;
+	transition: 150ms;
 }
 
 .calculator-body button:hover {
-	background-color: white;
+	background-color: #202020;
 }
 
 .double-size {
@@ -32,7 +35,14 @@ body {
 
 .userOutput {
 	grid-column: 1 / -1;
-	background-color: rgba(0, 0, 0, 0.422);
+	background-color: rgba(8, 8, 8, 0.318);
 	color: white;
-	border: 1px solid white;
+	border: 0.1rem;
+	padding: 0.5rem;
+	border-style: solid;
+	border-color: black;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-around;
 }
