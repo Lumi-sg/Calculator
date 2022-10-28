@@ -4,7 +4,7 @@ body {
 	background-color: #181818;
 }
 
-.calculator-body {
+.calculator {
 	display: grid;
 	justify-content: center;
 	align-content: center;
@@ -14,7 +14,7 @@ body {
 	grid-template-rows: minmax(5rem, auto) repeat(5, 4rem);
 }
 
-.calculator-body button {
+.calculator button {
 	cursor: pointer;
 	border: 0.1rem solid black;
 	background-color: #3a3a3a;
@@ -25,7 +25,7 @@ body {
 	transition: 150ms;
 }
 
-.calculator-body button:hover {
+.calculator button:hover {
 	background-color: #202020;
 }
 
@@ -37,6 +37,7 @@ body {
 	grid-column: 1 / -1;
 	background-color: rgba(8, 8, 8, 0.318);
 	color: white;
+	font-weight: bold;
 	border: 0.1rem;
 	padding: 0.5rem;
 	border-style: solid;
@@ -45,4 +46,14 @@ body {
 	flex-direction: column;
 	align-items: flex-end;
 	justify-content: space-around;
+}
+
+.smallTopText {
+	color: rgba(255, 255, 255, 0.75);
+	font-size: 1rem;
+}
+
+.bigBottomText {
+	color: white;
+	font-size: 1.5rem;
 }
