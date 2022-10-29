@@ -8,7 +8,7 @@ body {
 	display: grid;
 	justify-content: center;
 	align-content: center;
-	border: 1px solid black;
+
 	min-height: 100vh;
 	grid-template-columns: repeat(4, 4rem);
 	grid-template-rows: minmax(5rem, auto) repeat(5, 4rem);
@@ -26,11 +26,11 @@ body {
 }
 
 .calculator button:hover {
-	background-color: #202020;
+	background-color: #6e6e6e;
 }
 
 .calculator button:active {
-	transform: scale(1.2);
+	transform: scale(0.9);
 }
 
 .double-size {
@@ -45,6 +45,7 @@ body {
 	border: 0.1rem;
 	padding: 0.5rem;
 	border-style: solid;
+	border-radius: 5px 5px 0 0;
 	border-color: black;
 	display: flex;
 	flex-direction: column;
@@ -60,4 +61,45 @@ body {
 .bigTopText {
 	color: white;
 	font-size: 1.5rem;
+}
+
+button:nth-child(4) {
+	background-color: #126762;
+}
+button:nth-child(4):hover {
+	background-color: #1a9f96;
+}
+button:nth-child(8) {
+	background-color: #b17402;
+}
+button:nth-child(8):hover {
+	background-color: #de9000;
+}
+button:nth-child(12) {
+	background-color: #731c1c;
+}
+button:nth-child(12):hover {
+	background-color: #c53333;
+}
+button:nth-child(16) {
+	background-color: #3a4671;
+}
+button:nth-child(16):hover {
+	background-color: #6073ba;
+}
+button:nth-child(19) {
+	background-color: #5a486a;
+}
+button:nth-child(19):hover {
+	background-color: #9777b2;
+}
+
+button:nth-child(2),
+button:nth-child(3) {
+	background-color: #242424;
+}
+
+button:nth-child(2):hover,
+button:nth-child(3):hover {
+	background-color: #101010;
 }
