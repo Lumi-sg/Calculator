@@ -3,11 +3,12 @@ const operationButtons = document.querySelectorAll("[calc-operation]");
 const clearButtton = document.querySelector("[calc-clear]");
 const deleteButton = document.querySelector("[calc-delete]");
 const equalsButton = document.querySelector("[calc-equals]");
+const decimalButton = document.querySelector("[calc-decimal]");
 const topText = document.querySelector("[calc-userText]");
 const botText = document.querySelector("[calc-calcOutput]");
 
 numberButtons.forEach((button) => {
-	button.addEventListener("click", function () {
+	button.addEventListener("click", function (e) {
 		topText.textContent += button.textContent;
 	});
 });
@@ -16,6 +17,14 @@ operationButtons.forEach((button) => {
 	button.addEventListener("click", function () {
 		topText.textContent += ` ${button.textContent} `;
 	});
+});
+
+decimalButton.addEventListener("click", function () {
+	if (topText.textContent.includes(".")) {
+		return;
+	} else {
+		topText.textContent += decimalButton.textContent;
+	}
 });
 
 clearButtton.addEventListener("click", function () {
