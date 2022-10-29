@@ -22,3 +22,23 @@ clearButtton.addEventListener("click", function () {
 	topText.textContent = "";
 	botText.textContent = "";
 });
+
+deleteButton.addEventListener("click", function () {
+	if (topText.textContent) {
+		topText.textContent = topText.textContent.slice(0, -1);
+	}
+});
+
+equalsButton.addEventListener("click", function () {
+	if (topText.textContent) {
+		try {
+			botText.innerText = eval(
+				topText.innerText.replace(/[^-+/.*\d]/g, "")
+			);
+		} catch {
+			topText.textContent = "";
+			botText.textContent = "";
+			botText.textContent = "ERROR";
+		}
+	}
+});
