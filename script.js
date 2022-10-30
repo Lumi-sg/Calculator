@@ -70,7 +70,8 @@ function myEvaluate() {
 	if (currentOperation === null || reset) {
 		return;
 	}
-	if (currentOperation === "÷" && botText.textContent === 0) {
+	if (currentOperation === "÷" && botText.textContent === "0") {
+		alert("You can't divide by 0!");
 		return;
 	}
 	secondOperation = botText.textContent;
@@ -94,8 +95,10 @@ function quickMaths(operation, a, b) {
 			return a * b;
 		case "÷":
 			if (b === 0) {
-				alert("You cannot divide by 0 idiot!");
-			} else return divide(a, b);
+				return null;
+			} else {
+				return a / b;
+			}
 		default:
 			return null;
 	}
