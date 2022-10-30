@@ -67,7 +67,10 @@ function setTheOperator(operator) {
 }
 
 function myEvaluate() {
-	if (currentOperation === null || reset === true) {
+	if (currentOperation === null || reset) {
+		return;
+	}
+	if (currentOperation === "÷" && botText.textContent === 0) {
 		return;
 	}
 	secondOperation = botText.textContent;
@@ -90,7 +93,9 @@ function quickMaths(operation, a, b) {
 		case "x":
 			return a * b;
 		case "÷":
-			return a / b;
+			if (b === 0) {
+				alert("You cannot divide by 0 idiot!");
+			} else return divide(a, b);
 		default:
 			return null;
 	}
