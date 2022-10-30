@@ -25,11 +25,6 @@ operationButtons.forEach((button) =>
 	button.addEventListener("click", () => setTheOperator(button.textContent))
 );
 
-function resetDisplay() {
-	botText.textContent = "";
-	reset = false;
-}
-
 function addNumToDisplay(number) {
 	if (botText.textContent === "0" || reset) {
 		resetDisplay();
@@ -45,11 +40,9 @@ function clear() {
 	currentOperation = null;
 }
 
-function addDecimal() {
-	if (reset) resetScreen();
-	if (botText.textContent === "") botText.textContent = "0";
-	if (botText.textContent.includes(".")) return;
-	botText.textContent += ".";
+function resetDisplay() {
+	botText.textContent = "";
+	reset = false;
 }
 
 function deleteLastNumber() {
@@ -107,4 +100,11 @@ function quickMaths(operation, a, b) {
 		default:
 			return null;
 	}
+}
+
+function addDecimal() {
+	if (reset) resetScreen();
+	if (botText.textContent === "") botText.textContent = "0";
+	if (botText.textContent.includes(".")) return;
+	botText.textContent += ".";
 }
