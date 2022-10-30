@@ -1,53 +1,50 @@
 const numberButtons = document.querySelectorAll("[calc-number]");
 const operationButtons = document.querySelectorAll("[calc-operation]");
-const clearButtton = document.querySelector("[calc-clear]");
+const clearButton = document.querySelector("[calc-clear]");
 const deleteButton = document.querySelector("[calc-delete]");
 const equalsButton = document.querySelector("[calc-equals]");
 const decimalButton = document.querySelector("[calc-decimal]");
 const topText = document.querySelector("[calc-userText]");
 const botText = document.querySelector("[calc-calcOutput]");
 
-numberButtons.forEach((button) => {
-	button.addEventListener("click", function (e) {
-		topText.textContent += button.textContent;
-	});
-});
+let firstOperation = "";
+let secondOperation = "";
+let currentOperation = null;
+let reset = false;
 
-operationButtons.forEach((button) => {
-	button.addEventListener("click", function () {
-		topText.textContent += ` ${button.textContent} `;
-	});
-});
+equalsButton.addEventListener("click", evaluate);
+clearButton.addEventListener("click", clear);
+deleteButton.addEventListener("click", deleteNumber);
+decimalButton.addEventListener("click", addDecimal);
 
-decimalButton.addEventListener("click", function () {
-	if (topText.textContent.includes(".")) {
-		return;
-	} else {
-		topText.textContent += decimalButton.textContent;
-	}
-});
-
-clearButtton.addEventListener("click", function () {
-	topText.textContent = "";
+function resetDisplay() {
 	botText.textContent = "";
-});
+	reset = false;
+}
 
-deleteButton.addEventListener("click", function () {
-	if (topText.textContent) {
-		topText.textContent = topText.textContent.slice(0, -1);
+function addNumToDisplay(number) {
+	if (botText.textContent === "" || reset) {
+		resetDisplay();
 	}
-});
+	botText.textContent += number;
+}
 
-equalsButton.addEventListener("click", function () {
-	if (topText.textContent) {
-		try {
-			botText.innerText = eval(
-				topText.innerText.replace(/[^-+/.*\d]/g, "")
-			);
-		} catch {
-			topText.textContent = "";
-			botText.textContent = "";
-			botText.textContent = "ERROR";
-		}
-	}
-});
+function clear() {
+	botText.textContent = "";
+	topText.textContent = "";
+	firstOperation = "";
+	secondOperation = "";
+	currentOperation = NaN;
+}
+
+function addDecimal() {
+	if (shouldResetScreen) resetScreen();
+	if (currentOperationScreen.textContent === "")
+		currentOperationScreen.textContent = "0";
+	if (currentOperationScreen.textContent.includes(".")) return;
+	currentOperationScreen.textContent += ".";
+}
+
+function deleteLastNumber() {
+	botText.textContent = botText.textContent.toString().slice(0, -1);
+}
