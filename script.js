@@ -72,6 +72,7 @@ function myEvaluate() {
 	}
 	if (currentOperation === "÷" && botText.textContent === "0") {
 		alert("You can't divide by 0!");
+		botText.textContent = "";
 		return;
 	}
 	secondOperation = botText.textContent;
