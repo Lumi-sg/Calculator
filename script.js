@@ -31,7 +31,7 @@ function resetDisplay() {
 }
 
 function addNumToDisplay(number) {
-	if (botText.textContent === "" || reset) {
+	if (botText.textContent === "0" || reset) {
 		resetDisplay();
 	}
 	botText.textContent += number;
@@ -57,11 +57,15 @@ function deleteLastNumber() {
 }
 
 function setTheOperator(operator) {
-	if (botText.textContent !== null) {
+	if (botText.textContent !== "null") {
 		myEvaluate();
 	}
 	firstOperation = botText.textContent;
 	currentOperation = operator;
+	if (botText.textContent === "") {
+		clear();
+		return;
+	}
 	topText.textContent = `${firstOperation} ${currentOperation}`;
 	reset = true;
 }
