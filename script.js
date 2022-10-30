@@ -12,10 +12,18 @@ let secondOperation = "";
 let currentOperation = null;
 let reset = false;
 
-equalsButton.addEventListener("click", evaluate);
 clearButton.addEventListener("click", clear);
 deleteButton.addEventListener("click", deleteLastNumber);
+equalsButton.addEventListener("click", myEvaluate);
 decimalButton.addEventListener("click", addDecimal);
+
+numberButtons.forEach((button) =>
+	button.addEventListener("click", () => addNumToDisplay(button.textContent))
+);
+
+operationButtons.forEach((button) =>
+	button.addEventListener("click", () => setTheOperator(button.textContent))
+);
 
 function resetDisplay() {
 	botText.textContent = "";
@@ -34,7 +42,7 @@ function clear() {
 	topText.textContent = "";
 	firstOperation = "";
 	secondOperation = "";
-	currentOperation = NaN;
+	currentOperation = null;
 }
 
 function addDecimal() {
@@ -46,4 +54,44 @@ function addDecimal() {
 
 function deleteLastNumber() {
 	botText.textContent = botText.textContent.toString().slice(0, -1);
+}
+
+function setTheOperator(operator) {
+	if (botText.textContent !== null) {
+		myEvaluate();
+	}
+	firstOperation = botText.textContent;
+	currentOperation = operator;
+	topText.textContent = `${firstOperation} ${currentOperation}`;
+	reset = true;
+}
+
+function myEvaluate() {
+	if (currentOperation === null || reset === true) {
+		return;
+	}
+	secondOperation = botText.textContent;
+	botText.textContent = quickMaths(
+		currentOperation,
+		firstOperation,
+		secondOperation
+	);
+	topText.textContent = `${firstOperation} ${currentOperation} ${secondOperation} =`;
+	currentOperation = null;
+}
+function quickMaths(operation, a, b) {
+	a = parseFloat(a);
+	b = parseFloat(b);
+	switch (operation) {
+		case "+":
+			return a + b;
+		case "-":
+			return a - b;
+		case "x":
+			return a * b;
+		case "÷":
+			return a / b;
+		default:
+			return null;
+	}
 }
