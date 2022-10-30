@@ -14,7 +14,7 @@ let reset = false;
 
 equalsButton.addEventListener("click", evaluate);
 clearButton.addEventListener("click", clear);
-deleteButton.addEventListener("click", deleteNumber);
+deleteButton.addEventListener("click", deleteLastNumber);
 decimalButton.addEventListener("click", addDecimal);
 
 function resetDisplay() {
@@ -38,11 +38,10 @@ function clear() {
 }
 
 function addDecimal() {
-	if (shouldResetScreen) resetScreen();
-	if (currentOperationScreen.textContent === "")
-		currentOperationScreen.textContent = "0";
-	if (currentOperationScreen.textContent.includes(".")) return;
-	currentOperationScreen.textContent += ".";
+	if (reset) resetScreen();
+	if (botText.textContent === "") botText.textContent = "0";
+	if (botText.textContent.includes(".")) return;
+	botText.textContent += ".";
 }
 
 function deleteLastNumber() {
