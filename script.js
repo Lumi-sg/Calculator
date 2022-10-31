@@ -16,6 +16,7 @@ clearButton.addEventListener("click", clear);
 deleteButton.addEventListener("click", deleteLastNumber);
 equalsButton.addEventListener("click", myEvaluate);
 decimalButton.addEventListener("click", addDecimal);
+window.addEventListener("keydown", keyboartSupport);
 
 numberButtons.forEach((button) =>
 	button.addEventListener("click", () => addNumToDisplay(button.textContent))
@@ -113,4 +114,28 @@ function addDecimal() {
 		return;
 	}
 	botText.textContent += ".";
+}
+
+function keyboartSupport(event) {
+	if (event.key >= 0 && event.key <= 9) {
+		addNumToDisplay(event.key);
+	}
+	if (event.key === "+" || event.key === "-") {
+		setTheOperator(event.key);
+	}
+	if (event.key === "*") {
+		setTheOperator("x");
+	}
+	if (event.key === "/") {
+		setTheOperator("÷");
+	}
+	if (event.key === ".") {
+		addDecimal();
+	}
+	if (event.key === "=" || event.key === "Enter") {
+		myEvaluate();
+	}
+	if (event.key === "Backspace") {
+		deleteLastNumber();
+	}
 }
