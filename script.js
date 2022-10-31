@@ -74,14 +74,16 @@ function myEvaluate() {
 		return;
 	}
 	secondOperation = botText.textContent;
-	botText.textContent = quickMaths(
-		currentOperation,
-		firstOperation,
-		secondOperation
+	botText.textContent = rounding(
+		quickMaths(currentOperation, firstOperation, secondOperation)
 	);
 	topText.textContent = `${firstOperation} ${currentOperation} ${secondOperation} =`;
 	currentOperation = null;
 }
+function rounding(result) {
+	return Math.round(result * 100) / 100;
+}
+
 function quickMaths(operation, a, b) {
 	a = parseFloat(a);
 	b = parseFloat(b);
