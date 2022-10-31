@@ -33,7 +33,7 @@ function addNumToDisplay(number) {
 }
 
 function clear() {
-	botText.textContent = "";
+	botText.textContent = "0";
 	topText.textContent = "";
 	firstOperation = "";
 	secondOperation = "";
@@ -77,7 +77,7 @@ function myEvaluate() {
 		currentOperation,
 		firstOperation,
 		secondOperation
-	)
+	);
 	topText.textContent = `${firstOperation} ${currentOperation} ${secondOperation} =`;
 	currentOperation = null;
 }
@@ -103,8 +103,14 @@ function quickMaths(operation, a, b) {
 }
 
 function addDecimal() {
-	if (reset) resetScreen();
-	if (botText.textContent === "") botText.textContent = "0";
-	if (botText.textContent.includes(".")) return;
+	if (reset) {
+		resetScreen();
+	}
+	if (botText.textContent === "") {
+		botText.textContent = "0";
+	}
+	if (botText.textContent.includes(".")) {
+		return;
+	}
 	botText.textContent += ".";
 }
