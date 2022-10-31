@@ -77,7 +77,7 @@ function myEvaluate() {
 		currentOperation,
 		firstOperation,
 		secondOperation
-	).toLocaleString("en");
+	)
 	topText.textContent = `${firstOperation} ${currentOperation} ${secondOperation} =`;
 	currentOperation = null;
 }
