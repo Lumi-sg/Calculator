@@ -119,7 +119,6 @@ function addDecimal() {
 function keyboartSupport(event) {
 	if (event.key !== " ") {
 		if (event.key >= 0 && event.key <= 9) {
-			console.log(event.key);
 			addNumToDisplay(event.key);
 		}
 		if (event.key === "+" || event.key === "-") {
